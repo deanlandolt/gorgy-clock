@@ -1,0 +1,13 @@
+{
+  "name": "Gorgy Clock",
+  "description": "A clock application modeled in the Gorgy style",
+  "launch_path": "/clock.html",
+  "developer": {
+    "name": "Dean Landolt",
+    "url": "https://github.com/deanlandolt/gorgy-clock"
+  },
+  "icons": {
+    "120": "/icons/Clock.png"
+  }
+}
+

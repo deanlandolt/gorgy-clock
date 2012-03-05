@@ -1,0 +1,167 @@
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  background: #000;
+}
+
+div, span {
+  font-size: 10px;
+}
+
+#clock {
+  position: absolute;
+}
+
+@font-face { font-family: BPdotsUnicase; src: url('fonts/BPdotsUnicase.otf'); }
+
+.text {
+  font-family: BPdotsUnicase, monospace;
+}
+.text div {
+  font-size: 8em;
+}
+.text span {
+  font-size: 1em;
+}
+
+.text * {
+  cursor: default;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.text div {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+#date {
+  top: -moz-calc(25% - 0.775em);
+}
+
+#time {
+  top: -moz-calc(50% - 0.775em);
+}
+
+#second {
+  top: -moz-calc(75% - 0.775em);
+}
+
+.tick > .dot {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  left: -moz-calc(50% - 0.5em);
+  top: 0;
+}
+.tick > .dot.small {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  left: -moz-calc(50% - 0.25em);
+}
+
+.tick {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+
+.tick.s0 {
+  -moz-transform: scale(0.96);
+}
+.tick.s5 {
+  -moz-transform: scale(0.96) rotate(30deg);
+}
+.tick.s10 {
+  -moz-transform: scale(0.96) rotate(60deg);
+}
+.tick.s15 {
+  -moz-transform: scale(0.96) rotate(90deg);
+}
+.tick.s20 {
+  -moz-transform: scale(0.96) rotate(120deg);
+}
+.tick.s25 {
+  -moz-transform: scale(0.96) rotate(150deg);
+}
+.tick.s30 {
+  -moz-transform: scale(0.96) rotate(180deg);
+}
+.tick.s35 {
+  -moz-transform: scale(0.96) rotate(210deg);
+}
+.tick.s40 {
+  -moz-transform: scale(0.96) rotate(240deg);
+}
+.tick.s45 {
+  -moz-transform: scale(0.96) rotate(270deg);
+}
+.tick.s50 {
+  -moz-transform: scale(0.96) rotate(300deg);
+}
+.tick.s55 {
+  -moz-transform: scale(0.96) rotate(330deg);
+}
+
+
+div.small, span.small {
+  font-size: 6em;
+}
+
+.green, .green * {
+  color: rgba(102, 255, 102, 0.75);
+  text-shadow: 0 0 0.25em rgba(102, 255, 102, 0.75);
+}
+.blue, .blue * {
+  color: rgba(0, 102, 255, 0.75);
+  text-shadow: 0 0 0.25em rgba(0, 102, 255, 0.75);
+}
+.red, .red * {
+  color: rgba(255, 50, 50, 0.75);
+  text-shadow: 0 0 0.25em rgba(255, 50, 50, 0.75);
+}
+.orange, .orange * {
+  color: rgba(255, 102, 0, 0.75);
+  text-shadow: 0 0 0.25em rgba(255, 102, 0, 0.75);
+}
+
+.green .dot {
+  background-color: rgba(102, 255, 102, 0.75);
+  box-shadow: 0 0 1em rgba(102, 255, 102, 0.75);
+}
+.blue .dot {
+  background-color: rgba(0, 102, 255, 0.75);
+  box-shadow: 0 0 1em rgba(0, 102, 255, 0.75);
+}
+.red .dot {
+  background-color: rgba(255, 50, 50, 0.75);
+  box-shadow: 0 0 1em rgba(255, 50, 50, 0.75);
+}
+.orange .dot {
+  background-color: rgba(255, 102, 0, 0.75);
+  box-shadow: 0 0 1em rgba(255, 102, 0, 0.75);
+}
+
+.dot.green {
+  background-color: rgba(102, 255, 102, 0.75);
+  box-shadow: 0 0 1em rgba(102, 255, 102, 0.75);
+}
+.dot.blue {
+  background-color: rgba(0, 102, 255, 0.75);
+  box-shadow: 0 0 1em rgba(0, 102, 255, 0.75);
+}
+.dot.red {
+  background-color: rgba(255, 50, 50, 0.75);
+  box-shadow: 0 0 1em rgba(255, 50, 50, 0.75);
+}
+.dot.orange {
+  background-color: rgba(255, 102, 0, 0.75);
+  box-shadow: 0 0 1em rgba(255, 102, 0, 0.75);
+}
