@@ -30,6 +30,7 @@ div, span {
 .text * {
   cursor: default;
   -moz-user-select: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -40,30 +41,39 @@ div, span {
 }
 
 #date {
-  top: -moz-calc(25% - 0.775em);
+  top: 25%;
+  margin-top: -0.775em;
 }
 
 #time {
-  top: -moz-calc(50% - 0.775em);
+  top: 50%;
+  margin-top: -0.775em;
 }
 
 #second {
-  top: -moz-calc(75% - 0.775em);
+  top: 75%;
+  margin-top: -0.775em;
 }
 
+/*.tick.seconds {
+  -moz-transition: -moz-transform 0.25s ease;
+  -webkit-transition: -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease;
+}*/
+
 .tick > .dot {
-  position: absolute;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
   width: 1em;
   height: 1em;
   border-radius: 0.5em;
-  left: -moz-calc(50% - 0.5em);
   top: 0;
 }
 .tick > .dot.small {
   width: 0.5em;
   height: 0.5em;
   border-radius: 0.25em;
-  left: -moz-calc(50% - 0.25em);
 }
 
 .tick {
@@ -75,39 +85,51 @@ div, span {
 
 .tick.s0 {
   -moz-transform: scale(0.96);
+  -webkit-transform: scale(0.96);
 }
 .tick.s5 {
   -moz-transform: scale(0.96) rotate(30deg);
+  -webkit-transform: scale(0.96) rotate(30deg);
 }
 .tick.s10 {
   -moz-transform: scale(0.96) rotate(60deg);
+  -webkit-transform: scale(0.96) rotate(60deg);
 }
 .tick.s15 {
   -moz-transform: scale(0.96) rotate(90deg);
+  -webkit-transform: scale(0.96) rotate(90deg);
 }
 .tick.s20 {
   -moz-transform: scale(0.96) rotate(120deg);
+  -webkit-transform: scale(0.96) rotate(120deg);
 }
 .tick.s25 {
   -moz-transform: scale(0.96) rotate(150deg);
+  -webkit-transform: scale(0.96) rotate(150deg);
 }
 .tick.s30 {
   -moz-transform: scale(0.96) rotate(180deg);
+  -webkit-transform: scale(0.96) rotate(180deg);
 }
 .tick.s35 {
   -moz-transform: scale(0.96) rotate(210deg);
+  -webkit-transform: scale(0.96) rotate(210deg);
 }
 .tick.s40 {
   -moz-transform: scale(0.96) rotate(240deg);
+  -webkit-transform: scale(0.96) rotate(240deg);
 }
 .tick.s45 {
   -moz-transform: scale(0.96) rotate(270deg);
+  -webkit-transform: scale(0.96) rotate(270deg);
 }
 .tick.s50 {
   -moz-transform: scale(0.96) rotate(300deg);
+  -webkit-transform: scale(0.96) rotate(300deg);
 }
 .tick.s55 {
   -moz-transform: scale(0.96) rotate(330deg);
+  -webkit-transform: scale(0.96) rotate(330deg);
 }
 
 

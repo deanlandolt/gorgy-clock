@@ -1,16 +1,23 @@
 'use strict';
 
 var config = {
-  use24HourClock: true
+  use24HourClock: true,
+  //transitionSeconds: "0.25s ease",
 };
 
 window.addEventListener('load', function clockLoad(evt) {
   window.removeEventListener('load', clockLoad);
-  var byId = document.getElementById.bind(document);
+  function byId(id) {
+    return document.getElementById(id);
+  }
 
   var clockNode = byId('clock');
-  var secondsTicker = document.querySelector('.tick.seconds');
   var secondsScale = 0.88;
+  var secondsTicker = document.querySelector('.tick.seconds');
+  if (config.transitionSeconds) {
+    secondsTicker.style.MozTransition = "-moz-transform " + config.transitionSeconds;
+    secondsTicker.style.WebkitTransition = "-webkit-transform " + config.transitionSeconds;
+  }
 
   var cache = {
     date: { node: byId('date') },
@@ -29,9 +36,8 @@ window.addEventListener('load', function clockLoad(evt) {
     }
     setIfChanged("hour", zeroPad(hour));
     setIfChanged("minute", zeroPad(d.getMinutes()));
-    var second = d.getSeconds();
-    setIfChanged("second", zeroPad(second));
-    setSecondsTicker(second);
+    setIfChanged("second", zeroPad(d.getSeconds()));
+    setSecondsTicker(d);
   }, 16);
 
   function zeroPad(i) {
@@ -44,8 +50,19 @@ window.addEventListener('load', function clockLoad(evt) {
     if (value !== c.value) c.node.innerHTML = c.value = value;
   }
 
-  function setSecondsTicker(s) {
-    secondsTicker.style.MozTransform = "rotate(" + (s * 6) + "deg) scale(" + secondsScale + ")";
+  var _lastSecond;
+  function setSecondsTicker(d) {
+    var s = d.getSeconds();
+    if (config.smoothSeconds) {
+      s += d.getMilliseconds() / 1000;
+    }
+    if (_lastSecond !== s) {
+      _lastSecond = s;
+      var transform = " scale(" + secondsScale + ")";
+      transform += " rotate(" + (s * 6) + "deg)";
+      secondsTicker.style.MozTransform = transform;
+      secondsTicker.style.WebkitTransform = transform;
+    }
   }
 
   window.onresize = resize;
@@ -68,6 +85,11 @@ window.addEventListener('load', function clockLoad(evt) {
       clockNode.style.left = 0;
     }
   }
+
+  // disable elastic scroll on iphone
+  document.addEventListener('touchmove', function(evt) {
+    evt.preventDefault();
+  });
 
   window.parent.postMessage('appready', '*');
 });
